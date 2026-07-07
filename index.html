@@ -352,7 +352,9 @@
   .num-tw   { background: #e0f8ff; color: #005a6a; }
   .num-react{ background: #e8f8ff; color: #004870; }
   .num-bonus{ background: #f5e8ff; color: #6a1fa0; }
+  .num-n8n  { background: #fff0f0; color: #c0392b; }
   .num-final{ background: var(--bg3); color: var(--text); }
+  .pill-n8n { background: #fff0f0; color: #c0392b; border-color: #f5b8b8; }
 
   .section-title {
     font-family: 'Fraunces', serif;
@@ -1245,6 +1247,7 @@
       <a href="#tailwind">Tailwind</a>
       <a href="#react">React</a>
       <a href="#bonus">MERN</a>
+      <a href="#n8n">n8n</a>
       <a href="#final">Master Revision</a>
     </div>
     <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode">Dark mode</button>
@@ -1268,6 +1271,7 @@
     <span class="tech-pill pill-tw">Tailwind CSS</span>
     <span class="tech-pill pill-react">React JS</span>
     <span class="tech-pill pill-bonus">MERN</span>
+    <span class="tech-pill pill-n8n">n8n</span>
   </div>
   <div class="hero-cta"><a href="#html">Start with HTML</a></div>
   <div class="hero-credit">Created by Vikas</div>
@@ -1296,6 +1300,7 @@
     <a href="#tailwind" class="toc-item"><span class="toc-dot" style="background:#008a9a"></span>Tailwind CSS</a>
     <a href="#react" class="toc-item"><span class="toc-dot" style="background:#0078b8"></span>React JS</a>
     <a href="#bonus" class="toc-item"><span class="toc-dot" style="background:#6a1fa0"></span>MERN Stack</a>
+    <a href="#n8n" class="toc-item"><span class="toc-dot" style="background:#c0392b"></span>n8n</a>
     <a href="#final" class="toc-item"><span class="toc-dot" style="background:#2d5a8e"></span>Master Revision</a>
   </div>
 </div>
@@ -4456,6 +4461,464 @@
       <summary>What is the benefit of using a single codebase repository ("monorepo") for both client and server in MERN?</summary>
       <div class="qa-answer"><p>It keeps the frontend and backend code together in one place, making it easier to manage versions and deploy both parts together, though some teams prefer separate repositories for bigger, more independent teams.</p></div>
     </details>
+  </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: n8n                                               -->
+<!-- ============================================================ -->
+<hr>
+<div id="n8n">
+  <div class="section-header">
+    <div class="section-num num-n8n">8</div>
+    <div>
+      <div class="section-title">n8n</div>
+      <div class="section-sub">Workflow Automation Tool — connect apps, automate tasks, no coding needed</div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-title">What is n8n?</div>
+    n8n (pronounced "n-eight-n") is an open-source workflow automation tool. It lets you connect different apps and services together — like Google Sheets, Gmail, Slack, databases, and APIs — and automate tasks between them using a visual drag-and-drop canvas, without writing code. Think of it like drawing a flowchart that actually runs and does real work.
+  </div>
+
+  <h2>How n8n Works — The Big Picture</h2>
+  <p>In n8n, you build a <strong>workflow</strong>. A workflow is a chain of steps. Each step is called a <strong>node</strong>. You connect nodes together and n8n automatically runs them one after the other — or based on rules you set.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🟠 Trigger Nodes — "What starts the workflow?"</div>
+      <ul>
+        <li>A new email arrives in Gmail</li>
+        <li>A form is submitted on a website</li>
+        <li>A schedule (every day at 9am)</li>
+        <li>A webhook call from another app</li>
+        <li>A new row added in Google Sheets</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔵 Action Nodes — "What should n8n do?"</div>
+      <ul>
+        <li>Send a Slack message</li>
+        <li>Save data to a database</li>
+        <li>Create a task in Trello or Jira</li>
+        <li>Call an external API</li>
+        <li>Transform or filter data</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Simple n8n Workflow Example</h2>
+  <pre><code><span class="cm">// Example: "When a new customer signs up on the website,
+// save their details to Google Sheets AND send them a welcome email"
+
+// Node 1 — Webhook Trigger (receives the signup data from the website)
+//            ↓
+// Node 2 — Google Sheets (saves name + email to a spreadsheet)
+//            ↓
+// Node 3 — Gmail (sends a welcome email to the new customer)
+
+// Vikas just signed up on the website
+// n8n automatically:
+//  1. Catches the signup data
+//  2. Adds a row in Google Sheets: | Vikas | vikas@email.com |
+//  3. Sends an email to Vikas: "Welcome! Thanks for joining."</span></code></pre>
+
+  <h2>Key n8n Concepts</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Term</th><th>What it means in simple words</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Workflow</strong></td><td>The whole automation you build — a chain of connected steps</td></tr>
+      <tr><td><strong>Node</strong></td><td>One single step in a workflow — like "send email" or "read spreadsheet"</td></tr>
+      <tr><td><strong>Trigger</strong></td><td>The first node — it starts the whole workflow when something happens</td></tr>
+      <tr><td><strong>Webhook</strong></td><td>A special URL that another app can call to trigger a workflow</td></tr>
+      <tr><td><strong>Expression</strong></td><td>A small piece of code you can write inside a node to use or change data</td></tr>
+      <tr><td><strong>Credential</strong></td><td>The saved login/API key for an app, so n8n can connect to it securely</td></tr>
+      <tr><td><strong>Execution</strong></td><td>One single run of a workflow from start to finish</td></tr>
+      <tr><td><strong>Item</strong></td><td>One piece of data flowing through the workflow — like one row from a spreadsheet</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>🎯 n8n Interview Questions &amp; Answers</h2>
+  <div class="card">
+  <ul class="qa-list">
+
+    <details class="qa-item">
+      <summary>What is n8n?</summary>
+      <div class="qa-answer">
+        <p>n8n is an open-source tool that helps you automate work by connecting different apps and services together. Instead of doing repetitive tasks by hand (like copying data from one app to another), you build a "workflow" in n8n, and it does that work for you automatically.</p>
+        <div class="qa-example">Example: Every time Suhani gets a new order email, n8n automatically saves the order details into a Google Sheet and sends Suhani a Slack notification — without her doing anything.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What does "n8n" stand for? What does the name mean?</summary>
+      <div class="qa-answer">
+        <p>The name "n8n" is short for "nodemation." The number 8 replaces the eight letters "odematio" in the middle. It represents the tool's main idea — connecting nodes together to create automation.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is a workflow in n8n?</summary>
+      <div class="qa-answer">
+        <p>A workflow is the complete automation you build. It is a series of connected steps (called nodes) that n8n runs, one after the other. Each workflow starts with a trigger and ends after all the steps have been completed.</p>
+        <div class="qa-example">Example: Vikas builds a workflow that starts when a Google Form is submitted, then adds the data to Airtable, and finally sends a confirmation email — that whole chain together is one workflow.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is a node in n8n?</summary>
+      <div class="qa-answer">
+        <p>A node is one single step or action inside a workflow. Each node does one specific job, like "read emails," "send a message," or "save to database." You connect many nodes together to build a complete automation.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the difference between a Trigger node and a regular Action node?</summary>
+      <div class="qa-answer">
+        <p>A Trigger node is always the first node in a workflow — it "listens" for something to happen and starts the workflow when that event occurs. An Action node comes after the trigger and actually does something, like sending a message or saving data.</p>
+        <div class="qa-example">Example: A "Gmail Trigger" starts the workflow when a new email arrives. A "Slack" Action node then sends a notification about that email.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is a webhook in n8n?</summary>
+      <div class="qa-answer">
+        <p>A webhook is a special web address (URL) that n8n creates for your workflow. When another app sends data to that URL, it automatically starts the n8n workflow. It is one of the most common ways to trigger a workflow when something happens in an external app.</p>
+        <div class="qa-example">Example: Suhani's website sends customer signup details to an n8n webhook URL. n8n receives that data and then saves it to a database automatically.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the difference between n8n Cloud and self-hosted n8n?</summary>
+      <div class="qa-answer">
+        <p>n8n Cloud is the paid, managed version — n8n runs and maintains the server for you, and you just log in and start building. Self-hosted means you install and run n8n on your own computer or server, which gives you full control and is free, but you are responsible for keeping it running.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>How is n8n different from Zapier?</summary>
+      <div class="qa-answer">
+        <p>Both n8n and Zapier connect apps to automate tasks, but n8n is open-source and can be self-hosted for free with no limits on the number of workflows or executions. Zapier is a paid, closed-source service. n8n also lets you write custom code inside nodes, giving developers much more flexibility than Zapier.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is an expression in n8n?</summary>
+      <div class="qa-answer">
+        <p>An expression is a small piece of code you can write inside a node's field, using double curly braces, to dynamically use or change data coming from a previous node. It is like a mini template that gets filled in at runtime.</p>
+        <div class="qa-example">Example: Inside an email subject field, you write <code>&#123;&#123; $json.name &#125;&#125;</code> — when n8n runs, it replaces that with the actual name from the incoming data, like "Hello, Vikas!"</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What does <code>$json</code> mean in an n8n expression?</summary>
+      <div class="qa-answer">
+        <p><code>$json</code> refers to the data (in JSON format) coming from the current item being processed. You use it to access specific fields inside that data.</p>
+        <div class="qa-example">Example: If a node receives <code>&#123;"name": "Suhani", "email": "suhani@mail.com"&#125;</code>, you can write <code>&#123;&#123; $json.email &#125;&#125;</code> in the next node to use Suhani's email address.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is a credential in n8n?</summary>
+      <div class="qa-answer">
+        <p>A credential is where you securely save the login details (like an API key, username, or OAuth token) for a service. Once saved, you select that credential inside any node that needs to connect to that service. n8n encrypts and stores credentials safely.</p>
+        <div class="qa-example">Example: Vikas saves his Gmail API credentials in n8n once. Every Gmail node in all of his workflows can then use those saved credentials without him typing the password again.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is an execution in n8n?</summary>
+      <div class="qa-answer">
+        <p>An execution is one single run of a workflow from the very first node to the last. Every time the workflow is triggered, that counts as one execution. n8n saves a log of each execution so you can see what data went through and whether it succeeded or failed.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is an "item" in n8n, and why does it matter?</summary>
+      <div class="qa-answer">
+        <p>An item is one single piece of data moving through the workflow. Most nodes process one item at a time. If a node receives multiple items (like 10 rows from a spreadsheet), it usually processes each one separately, running through the whole workflow chain for each.</p>
+        <div class="qa-example">Example: A Google Sheets node reads 5 rows — n8n creates 5 items. The next Email node then sends 5 separate emails, one for each item/row.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>How do you start a workflow automatically on a schedule in n8n?</summary>
+      <div class="qa-answer">
+        <p>You use the <strong>Schedule Trigger</strong> node as the first node in your workflow. You set how often it should run — like every hour, every day at 9am, or every Monday. n8n then automatically starts the workflow at those times without anyone needing to click anything.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the IF node used for in n8n?</summary>
+      <div class="qa-answer">
+        <p>The IF node checks a condition and splits the workflow into two paths: a "true" path and a "false" path. This lets you make your workflow behave differently depending on the data.</p>
+        <div class="qa-example">Example: If the order amount is above ₹1000, go down one path and apply a discount. If the order amount is below ₹1000, go down the other path and keep the normal price.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Switch node in n8n?</summary>
+      <div class="qa-answer">
+        <p>The Switch node is like an IF node but for more than two choices. You define many different conditions, and the workflow goes down whichever path matches. It is like a multi-option router for your data.</p>
+        <div class="qa-example">Example: If the country is "India" go to path 1, if "USA" go to path 2, if "UK" go to path 3, otherwise go to a default path.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Merge node in n8n?</summary>
+      <div class="qa-answer">
+        <p>The Merge node takes data from two separate branches of a workflow and combines them together into one, so the next node can work with the combined data. It is the opposite of splitting — it brings paths back together.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Set node used for in n8n?</summary>
+      <div class="qa-answer">
+        <p>The Set node lets you create new fields or change the values of existing fields inside the data as it flows through the workflow. You can also use it to keep only the fields you need and remove the rest.</p>
+        <div class="qa-example">Example: The data coming in has 20 fields but the next step only needs "name" and "email". Suhani uses a Set node to keep just those two fields and remove the other 18.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Code node in n8n?</summary>
+      <div class="qa-answer">
+        <p>The Code node lets you write your own custom JavaScript code to transform or process data in ways that the built-in nodes cannot do on their own. It is useful for complex data changes, calculations, or logic that no ready-made node covers.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the HTTP Request node used for?</summary>
+      <div class="qa-answer">
+        <p>The HTTP Request node lets your workflow call any external API or web address. It can send GET, POST, PUT, DELETE requests to any service that has an API, even if n8n does not have a built-in node for that service. This makes n8n able to connect to almost anything.</p>
+        <div class="qa-example">Example: Vikas uses the HTTP Request node to call a weather API every morning and get today's temperature, which is then sent to a Slack channel.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the difference between "Test" mode and "Production" mode in n8n?</summary>
+      <div class="qa-answer">
+        <p>In Test mode, you run the workflow yourself manually inside the n8n editor to check it works correctly. In Production mode, the workflow is activated and runs automatically on its own whenever the trigger fires — real data is processed without you needing to be there.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What does "active" versus "inactive" mean for a workflow in n8n?</summary>
+      <div class="qa-answer">
+        <p>An active workflow is switched on — it runs automatically whenever its trigger condition happens. An inactive workflow is switched off — it will not run automatically, even if the trigger fires. You can still run it manually by clicking "Execute Workflow" while inactive, but it won't respond to real events.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the "Wait" node in n8n?</summary>
+      <div class="qa-answer">
+        <p>The Wait node pauses the workflow for a set amount of time before continuing to the next node. It is useful when you need a delay between steps — like sending a follow-up email 2 hours after the first one.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>How does error handling work in n8n?</summary>
+      <div class="qa-answer">
+        <p>In n8n you can set up an <strong>Error Workflow</strong> — a separate workflow that runs automatically whenever another workflow fails. This lets you send yourself a Slack alert or log the failure to a spreadsheet so you know something went wrong and can fix it.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the "Continue on Fail" setting on a node?</summary>
+      <div class="qa-answer">
+        <p>Normally, if a node fails, the whole workflow stops. If you turn on "Continue on Fail" for a specific node, n8n will move on to the next step even if that node had an error, instead of stopping everything. It is useful when a failure on one step should not block the rest of the workflow.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is a sub-workflow in n8n?</summary>
+      <div class="qa-answer">
+        <p>A sub-workflow is a separate workflow that can be called and run from inside another workflow, using the "Execute Workflow" node. It is like a reusable function — you build a small workflow once and call it from many other workflows, instead of repeating the same steps everywhere.</p>
+        <div class="qa-example">Example: Vikas has a workflow that sends a formatted notification email. Instead of rebuilding those email steps in every workflow, he calls that email workflow as a sub-workflow from 10 other workflows.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Loop Over Items node used for?</summary>
+      <div class="qa-answer">
+        <p>The Loop Over Items node processes a batch of items one by one (in a loop) rather than all at once. This is useful when you need to do something for each item separately in a controlled way, or when you need to add a delay between processing each item.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the difference between the <code>$json</code> and <code>$node</code> variables in n8n expressions?</summary>
+      <div class="qa-answer">
+        <p><code>$json</code> gives you the data from the current item in the previous node. <code>$node["NodeName"].json</code> gives you data from a specific named node anywhere earlier in the workflow, not just the one immediately before the current step.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Filter node in n8n?</summary>
+      <div class="qa-answer">
+        <p>The Filter node checks each incoming item against a condition and only passes through the items that match. Items that do not match the condition are simply removed from the flow.</p>
+        <div class="qa-example">Example: Suhani's workflow receives 100 customer records. She uses a Filter node to keep only the customers who are from Mumbai, so only those 30 customers continue to the next step.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Aggregate node in n8n?</summary>
+      <div class="qa-answer">
+        <p>The Aggregate node combines multiple separate items into one single item (or into a list inside one item). It is useful when you want to process a whole group of records together as one object, instead of one at a time.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Split In Batches node in n8n?</summary>
+      <div class="qa-answer">
+        <p>If you have a large number of items, the Split In Batches node divides them into smaller groups (batches) and processes each batch separately. This prevents overloading an API with too many requests at once.</p>
+        <div class="qa-example">Example: Vikas needs to send API requests for 500 items, but the API only allows 50 requests at a time. Split In Batches sends 50, waits, then sends the next 50, and so on.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the difference between "Run Once for All Items" and "Run Once for Each Item" in a node?</summary>
+      <div class="qa-answer">
+        <p>"Run Once for All Items" means the node runs one single time and receives all the items at once as a group. "Run Once for Each Item" means the node runs separately for every single item one by one. The right choice depends on whether the service or action you're using needs items one at a time or all together.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What are n8n templates, and why are they useful?</summary>
+      <div class="qa-answer">
+        <p>n8n templates are ready-made workflows built by the n8n team or the community, which you can import with one click and customise for your own needs. Instead of building a workflow from scratch, you start with a working example and just change the details — saving a lot of time.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>How do you pass data between nodes in n8n?</summary>
+      <div class="qa-answer">
+        <p>Data flows automatically from one node to the next through the connection (arrow) between them. Each node passes its output to the next node's input. You access the incoming data inside a node using expressions like <code>&#123;&#123; $json.fieldName &#125;&#125;</code>.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is OAuth authentication in n8n credentials?</summary>
+      <div class="qa-answer">
+        <p>OAuth is a safe way for n8n to connect to services like Google or Slack without you sharing your password. Instead, you click "Connect" in n8n, log into the service in a popup, grant permission, and the service gives n8n a secure token. n8n stores that token as the credential.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Respond to Webhook node in n8n?</summary>
+      <div class="qa-answer">
+        <p>When an app sends data to an n8n webhook and waits for a response, the Respond to Webhook node is what sends that response back. Without it, the other app would just time out waiting. It lets your workflow receive data, process it, and reply — like a mini API endpoint.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Can n8n connect to a database directly? Which databases?</summary>
+      <div class="qa-answer">
+        <p>Yes. n8n has built-in nodes for many popular databases including PostgreSQL, MySQL, MongoDB, Redis, and SQLite. You can read, write, update, and delete records directly from your database inside a workflow.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the AI Agent node in n8n?</summary>
+      <div class="qa-answer">
+        <p>The AI Agent node lets you connect an AI language model (like OpenAI's GPT) into your workflow, so it can think, make decisions, use tools you give it, and return intelligent answers. This is used to build AI-powered automations, like a smart customer support bot that can look up orders and reply to customers.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is n8n's "Chat Trigger" node used for?</summary>
+      <div class="qa-answer">
+        <p>The Chat Trigger node creates a simple chat interface in n8n's own built-in chat window. It starts the workflow every time a user sends a message in that chat. It is mainly used for building and testing AI chatbot workflows without needing an external chat platform.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>How would Vikas build a simple lead capture workflow in n8n?</summary>
+      <div class="qa-answer">
+        <p>Vikas could use a Webhook Trigger to receive form data when a new lead fills in a website form, then a Google Sheets node to save the lead's name and email into a spreadsheet, then a Gmail node to automatically send the new lead a welcome email — all three steps connected in a chain, running automatically every time someone fills in the form.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the Sticky Note node in n8n?</summary>
+      <div class="qa-answer">
+        <p>A Sticky Note is not a real processing step — it is a yellow note you can add to the canvas to write comments, explanations, or reminders about what a part of the workflow does. It is just for documentation, to make the workflow easier for others (or future-you) to understand.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the difference between n8n's "workflow" and n8n's "execution log"?</summary>
+      <div class="qa-answer">
+        <p>The workflow is the design — the connected nodes you built. The execution log is the record of what actually happened when the workflow ran: what data went through each node, whether it succeeded or failed, and how long it took.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>How does n8n handle large amounts of data — like processing 10,000 rows from a spreadsheet?</summary>
+      <div class="qa-answer">
+        <p>n8n processes items in batches. For very large datasets, you use the Split In Batches node to break the data into smaller chunks (like 100 rows at a time), process each batch, add a small wait if needed to respect API rate limits, and loop until all rows are done.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Is n8n only for non-developers (no-code users)?</summary>
+      <div class="qa-answer">
+        <p>No — n8n is good for everyone. Non-developers can build automations using the visual drag-and-drop canvas and built-in nodes without writing any code. Developers can also write JavaScript in the Code node, call APIs with the HTTP Request node, and build complex custom logic. n8n describes itself as "low-code" — visual first, but with the power to go deeper.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the purpose of the "n8n Form Trigger" node?</summary>
+      <div class="qa-answer">
+        <p>The n8n Form Trigger creates a real web form that n8n hosts for you. When someone fills it in and clicks Submit, the workflow starts with the form data as the input. It is a quick way to build a form-triggered workflow without needing an external form tool.</p>
+        <div class="qa-example">Example: Suhani creates a feedback form using the n8n Form Trigger. Every time someone submits feedback, n8n saves it to a Google Sheet automatically — no separate form tool like Typeform is needed.</div>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What does "pinning data" mean in n8n?</summary>
+      <div class="qa-answer">
+        <p>Pinning data means saving a snapshot of the data that came out of a node during a test run. While you are building and editing later nodes, n8n uses the pinned data instead of running the first node again. This saves time — you don't need to re-trigger the workflow every time you want to test a later step.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What happens when a workflow fails mid-execution in n8n?</summary>
+      <div class="qa-answer">
+        <p>When a node fails, n8n stops executing the workflow at that point and marks the execution as failed in the execution log. You can view exactly which node failed, what error occurred, and what data was being processed at that moment. If you have an Error Workflow set up, that separate workflow will also run to notify you.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>How do environment variables work in n8n?</summary>
+      <div class="qa-answer">
+        <p>Environment variables let you store configuration values — like API URLs or secret keys — outside your workflows, in the server settings. Inside a workflow you can access them using <code>$env.VARIABLE_NAME</code>. This is useful for values that change between development and production, without having to edit every workflow.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the difference between the "Webhook" trigger and the "HTTP Request" node?</summary>
+      <div class="qa-answer">
+        <p>The Webhook trigger is passive — it waits and listens for another app to call it. The HTTP Request node is active — it goes out and calls another app's URL. One receives data, the other sends a request to get or send data somewhere else.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>Can you version control n8n workflows? How?</summary>
+      <div class="qa-answer">
+        <p>Yes. n8n workflows can be exported as JSON files, which can then be saved in Git (like GitHub) just like normal code files. This lets a team track changes, review who changed what, and restore older versions of a workflow. n8n also has built-in workflow versioning on n8n Cloud.</p>
+      </div>
+    </details>
+
+    <details class="qa-item">
+      <summary>What is the n8n community, and where can you find help?</summary>
+      <div class="qa-answer">
+        <p>n8n has an active community forum at <strong>community.n8n.io</strong> where you can ask questions, share workflows, and find solutions. There are also thousands of ready-made templates on <strong>n8n.io/workflows</strong>, and the full official documentation is at <strong>docs.n8n.io</strong>.</p>
+      </div>
+    </details>
+
   </ul>
   </div>
 </div>
